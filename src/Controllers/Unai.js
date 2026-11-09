@@ -21,6 +21,10 @@ export default class UnaiController {
     ** dt: milliseconds elapsed since last update
     */
 
+    if (birdData.y > scene.height - scene.floor - 10) {
+      this.jump(2);
+    }
+
     // buscamos proxima tuberia mas cercana
     const ProximaTuberia = proximaTuberia(birdData, pipes);
 
@@ -34,23 +38,14 @@ export default class UnaiController {
     }
     
     // decidir si salta el pajaro
-    if(birdData.Y > posicionY + 10){
+    if(birdData.y > posicionY + 10){
 
-      thhis.jump(3); //ejecutamos jump
+      this.jump(3); //ejecutamos jump
       
     }
 
-    
 
-
-
-
-    
-
-    
-  }
-
-  function proximaTuberia (pipe, scene){
+    function proximaTuberia (pipe, scene){  
 
     /* 
     
@@ -70,7 +65,7 @@ export default class UnaiController {
       if (tuberiaDerechaX > birdData.x){
 
         // buscamos el que este mas cerca en el eje X
-        const distancia = pipe.x - birdData.X;
+        const distancia = pipe.x - birdData.x;
         if(distancia < DistanciaMin){
           DistanciaMin = distancia;
           tuberiaCercana = pipe;          
@@ -85,7 +80,7 @@ export default class UnaiController {
 
 
 
-  function obtenerPosicionY (pipe, scene){
+    function obtenerPosicionY (pipe, scene){
 
     if(pipe.isTop){
 
@@ -95,15 +90,14 @@ export default class UnaiController {
     } else{
 
       // // Si es el tubo inferior, el hueco termina donde empieza este tubo
-      const espacio ) 150;
+      const espacio = 150;
       return pipe.y - (espacio/2)
 
       
     }
     
-  }
-
-  
 }
-
+    
+  }
+}
 export const color = 0xff00ff;
