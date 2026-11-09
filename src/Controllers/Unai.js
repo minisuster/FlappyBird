@@ -36,7 +36,7 @@ export default class UnaiController {
     // decidir si salta el pajaro
     if(birdData.Y > posicionY + 10){
 
-      jump(); //ejecutamos jump
+      thhis.jump(3); //ejecutamos jump
       
     }
 
